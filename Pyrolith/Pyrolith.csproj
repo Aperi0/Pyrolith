@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Pyrolith - the Windows Forms GUI that builds packed executables. -->
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Pyrolith</RootNamespace>
+
+    <Version>1.0.0</Version>
+    <Product>Pyrolith</Product>
+    <Authors>Aperi0</Authors>
+    <Company>Aperi0</Company>
+    <Copyright>© 2026 Aperi0</Copyright>
+    <Description>Python to standalone EXE packer</Description>
+    <ApplicationIcon>Pyrolith.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Pyrolith.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Keep in sync with AppInfo.ThirdParty -->
+    <PackageReference Include="DotNetZip" Version="1.16.0" />
+    <PackageReference Include="Vestris.ResourceLib" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Resources\PyrolithLoader.exe is the AOT-compiled PyrolithLoader, embedded as a byte[] (see build.ps1). -->
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

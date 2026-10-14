@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Pyrolith/Pyrolith.csproj" />
+  <Project Path="PyrolithLoader/PyrolithLoader.csproj" />
+</Solution>

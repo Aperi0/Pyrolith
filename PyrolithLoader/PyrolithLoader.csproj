@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    PyrolithLoader - the native stub every generated executable is made of.
+    Publish it with Native AOT and copy the result to Pyrolith\Resources\PyrolithLoader.exe
+    (build.ps1 does both). A normal "dotnet build" is fine for debugging.
+  -->
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseWindowsForms>false</UseWindowsForms>
+
+    <!-- Small, dependency-free native exe -->
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <OptimizationPreference>Size</OptimizationPreference>
+
+    <!-- Produces the VS_VERSIONINFO resource that Pyrolith rewrites per application -->
+    <Version>1.0.0</Version>
+    <Product>Pyrolith Application</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Keep in sync with AppInfo.ThirdParty in the Pyrolith project -->
+    <PackageReference Include="SharpCompress" Version="0.50.5" />
+  </ItemGroup>
+
+</Project>
